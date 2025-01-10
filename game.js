@@ -70,14 +70,20 @@ document.addEventListener('DOMContentLoaded', function () {
     function generateWord() {
         const sentence = levels[level - 1];
         const words = sentence.split(' ');
-        words.forEach(wordText => {
-            const word = document.createElement('div');
-            word.classList.add('word');
-            word.textContent = wordText;
-            word.style.left = `${Math.random() * (gameContainer.offsetWidth - 100)}px`;
-            word.style.top = '0px';
-            wordsContainer.appendChild(word);
-            activeWords.push(word);
+        let delay = 0; // تأخير بدء كل كلمة
+
+        words.forEach((wordText, index) => {
+            setTimeout(() => {
+                const word = document.createElement('div');
+                word.classList.add('word');
+                word.textContent = wordText;
+                word.style.left = `${Math.random() * (gameContainer.offsetWidth - 100)}px`;
+                word.style.top = '0px';
+                wordsContainer.appendChild(word);
+                activeWords.push(word);
+            }, delay);
+
+            delay += 1000; // زيادة التأخير بمقدار ثانية واحدة (1000 مللي ثانية) لكل كلمة
         });
     }
 
