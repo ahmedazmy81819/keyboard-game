@@ -95,6 +95,28 @@
         body.dark-mode button:hover {
             background-color: #777;
         }
+
+        /* تنسيقات مربع الشرح */
+        .game-explanation {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px auto;
+            max-width: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .game-explanation h3 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            color: #007bff;
+        }
+
+        .game-explanation p {
+            font-size: 1rem;
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -102,6 +124,15 @@
         <h1>لعبة الكلمات المتساقطة</h1>
     </header>
     <main>
+        <!-- مربع الشرح السريع للعبة -->
+        <div class="game-explanation">
+            <h3>كيفية اللعب:</h3>
+            <p>
+                الكلمات تسقط من أعلى الشاشة. اكتب الكلمة بشكل صحيح في المربع المخصص واضغط Enter لإزالتها.
+                كلما تقدمت في المستويات، تزداد صعوبة اللعبة. حاول تحقيق أعلى نقاط ممكنة!
+            </p>
+        </div>
+
         <div class="buttons-container" id="main-buttons">
             <button id="start-game">ابدء اللعب</button>
             <button id="settings">الإعدادات</button>
@@ -125,6 +156,7 @@
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
