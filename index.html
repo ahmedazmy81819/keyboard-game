@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Falling Words</title>
+    <title>لعبة الكلمات المتساقطة</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         @keyframes fadeIn {
@@ -102,9 +102,13 @@
             border: 1px solid #ddd;
             border-radius: 10px;
             padding: 15px;
-            margin: 20px auto;
+            margin: 20px;
             max-width: 400px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            z-index: 1000;
         }
 
         .game-explanation h3 {
@@ -117,22 +121,33 @@
             font-size: 1rem;
             color: #333;
         }
+
+        /* تنسيقات متجاوبة للهواتف */
+        @media (max-width: 600px) {
+            .game-explanation {
+                width: 90%;
+                max-width: none;
+                margin: 10px;
+                bottom: 5px;
+                left: 5px;
+                right: 5px;
+            }
+
+            .game-explanation h3 {
+                font-size: 1rem;
+            }
+
+            .game-explanation p {
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Falling Words</h1>
+        <h1>لعبة الكلمات المتساقطة</h1>
     </header>
     <main>
-        <!-- مربع الشرح السريع للعبة -->
-        <div class="game-explanation">
-            <h3>كيفية اللعب:</h3>
-            <p>
-                الكلمات تسقط من أعلى الشاشة. اكتب الكلمة بشكل صحيح في المربع المخصص واضغط Enter لإزالتها.
-                كلما تقدمت في المستويات، تزداد صعوبة اللعبة. حاول تحقيق أعلى نقاط ممكنة!
-            </p>
-        </div>
-
         <div class="buttons-container" id="main-buttons">
             <button id="start-game">ابدء اللعب</button>
             <button id="settings">الإعدادات</button>
@@ -145,6 +160,15 @@
             <button id="training-room">غرفة التدريب</button>
         </div>
     </main>
+
+    <!-- مربع الشرح السريع للعبة -->
+    <div class="game-explanation">
+        <h3>كيفية اللعب:</h3>
+        <p>
+            الكلمات تسقط من أعلى الشاشة. اكتب الكلمة بشكل صحيح في المربع المخصص واضغط Enter لإزالتها.
+            كلما تقدمت في المستويات، تزداد صعوبة اللعبة. حاول تحقيق أعلى نقاط ممكنة!
+        </p>
+    </div>
 
     <!-- نافذة الإعدادات -->
     <div id="settings-modal" class="modal">
