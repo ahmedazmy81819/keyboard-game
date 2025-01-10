@@ -47,13 +47,12 @@ document.addEventListener('DOMContentLoaded', function () {
     let activeWords = [];
 
     function normalizeText(text) {
-        // توحيد الحروف المتشابهة
         return text
-            .normalize('NFKD') // تفكيك الحروف المركبة
-            .replace(/[\u064B-\u065F]/g, '') // إزالة التشكيل
-            .replace(/[أإآ]/g, 'ا') // توحيد الألف بأشكالها (أ، إ، آ)
-            .replace(/[ة]/g, 'ه') // تحويل التاء المربوطة إلى هاء
-            .replace(/[ى]/g, 'ي'); // تحويل الألف المقصورة إلى ياء
+            .normalize('NFKD')
+            .replace(/[\u064B-\u065F]/g, '')
+            .replace(/[أإآ]/g, 'ا')
+            .replace(/[ة]/g, 'ه')
+            .replace(/[ى]/g, 'ي');
     }
 
     function startGame() {
@@ -70,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function generateWord() {
         const sentence = levels[level - 1];
         const words = sentence.split(' ');
-        let delay = 0; // تأخير بدء كل كلمة
+        let delay = 0;
 
         words.forEach((wordText, index) => {
             setTimeout(() => {
@@ -83,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 activeWords.push(word);
             }, delay);
 
-            delay += 1000; // زيادة التأخير بمقدار ثانية واحدة (1000 مللي ثانية) لكل كلمة
+            delay += 1000;
         });
     }
 
@@ -119,11 +118,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     userInput.addEventListener('keyup', function (event) {
         if (event.key === 'Enter') {
-            const inputWord = normalizeText(userInput.value.trim()); // نحول النص لشكل موحد
+            const inputWord = normalizeText(userInput.value.trim());
             let wordFound = false;
 
             activeWords.forEach(word => {
-                const wordText = normalizeText(word.textContent); // نحول النص لشكل موحد
+                const wordText = normalizeText(word.textContent);
                 if (wordText === inputWord) {
                     word.remove();
                     activeWords = activeWords.filter(w => w !== word);
